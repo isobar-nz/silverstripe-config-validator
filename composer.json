@@ -1,0 +1,21 @@
+{
+  "name": "littlegiant/silverstripe-config-validator",
+  "description": "Build time configuration validation for SilverStripe framework.",
+  "type": "silverstripe-vendormodule",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Harsh Chokshi",
+      "email": "harsh.chokshi@littlegiant.co.nz",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "silverstripe/framework": "^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "LittleGiant\\SilverStripe\\ConfigValidator\\": "src/"
+    }
+  }
+}
