@@ -6,7 +6,7 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\Dev\DebugView;
 
 /**
- * Class ClassConfigValidationResult
+ * Validation result for a class config with an add-only API.
  *
  * @package LittleGiant\SilverStripe\ConfigValidator
  */
@@ -16,11 +16,17 @@ class ClassConfigValidationResult
     const MESSAGE = 'message';
 
     /**
+     * Class that this validation result is for.
      * @var string
      */
     protected $class;
 
     /**
+     * Errors for the class config. Keys are config parameters, values are an array where each entry has this schema:
+     * [
+     *      'caller'  => [ trace to caller of addError ],
+     *      'message' => error message string,
+     * ]
      * @var array
      */
     protected $errors = [];
@@ -35,8 +41,9 @@ class ClassConfigValidationResult
     }
 
     /**
-     * @param string $configName
-     * @param string $message
+     * Add an error for a config value.
+     * @param string $configName Parameter name.
+     * @param string $message Error message.
      * @return void
      */
     public function addError($configName, $message)
@@ -56,6 +63,7 @@ class ClassConfigValidationResult
     }
 
     /**
+     * Whether or not $class has any config errors.
      * @return bool
      */
     public function isValid()
@@ -64,6 +72,7 @@ class ClassConfigValidationResult
     }
 
     /**
+     * Merge another config validation result for the same class.
      * @param ClassConfigValidationResult $other
      * @return void
      */
@@ -77,6 +86,7 @@ class ClassConfigValidationResult
     }
 
     /**
+     * Get the class being validated.
      * @return string
      */
     public function getClass()
@@ -85,6 +95,7 @@ class ClassConfigValidationResult
     }
 
     /**
+     * Get any config errors for the class being validated.
      * @return array
      */
     public function getErrors()
@@ -93,6 +104,7 @@ class ClassConfigValidationResult
     }
 
     /**
+     * Render config errors to debug view.
      * @param DebugView $view
      * @return void
      */
