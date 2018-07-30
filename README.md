@@ -2,6 +2,8 @@
 
 A module for validating SilverStripe configuration at build time.
 
+![Screenshot of config validation failure screen](https://i.imgur.com/6R3mZgM.png)
+
 ## Installation
 
 Require via composer and run `/dev/build?flush=all`. This is a zero-configuration installation.
